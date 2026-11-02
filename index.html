@@ -187,7 +187,39 @@
         );
     }
 }
+.plane-flight {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
 
+    offset-path: ellipse(
+        33vw 6.8vh at 50% 18.5vh
+    );
+
+    animation: planeOrbit 22s linear infinite;
+}
+
+.airplane {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+
+    /* Original airplane design and colours */
+    filter: none;
+}
+
+@keyframes planeOrbit {
+    from {
+        offset-distance: 0%;
+        offset-rotate: auto;
+    }
+
+    to {
+        offset-distance: 100%;
+        offset-rotate: auto;
+    }
+}
 
     </style>
 </head>
