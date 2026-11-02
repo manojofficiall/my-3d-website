@@ -84,6 +84,50 @@
                 height: 100vh;
             }
         }
+        
+/* Full screen airplane path */
+.plane-flight {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+}
+
+/* Airplane movement */
+.airplane {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 30px;
+    color: #ffffff;
+
+    text-shadow:
+        0 0 8px #00aaff,
+        0 0 20px #008cff;
+
+    /* Elliptical circular path */
+    offset-path: ellipse(33vw 23vh at 50vw 63vh);
+
+    /* Face the direction of flight */
+    offset-rotate: auto;
+
+    offset-distance: 0%;
+
+    animation: airplaneFly 12s linear infinite;
+}
+
+/* Continuous flying */
+@keyframes airplaneFly {
+    from {
+        offset-distance: 0%;
+    }
+
+    to {
+        offset-distance: 100%;
+    }
+}
+
 
     </style>
 </head>
@@ -102,6 +146,9 @@
         environment-image="neutral"
         ar>
     </model-viewer>
-
+    
+<div class="plane-flight">
+    <div class="airplane">✈</div>
+</div>
 </body>
 </html>
